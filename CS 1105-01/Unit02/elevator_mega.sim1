@@ -1,0 +1,81 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="KeyPad" CircId="KeyPad-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-88,-444" rotation="0" hflip="-1" vflip="1" label="KeyPad-1" idLabPos="-39.7457,-21.7719" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="4" Cols="4" Key_Labels="123C456T789S*0#P" />
+
+<item itemtype="Ssd1306" CircId="Ssd1306-6" mainComp="false" Show_id="true" Show_Val="false" Pos="-580,-544" rotation="0" hflip="1" vflip="1" label="Ssd1306-6" idLabPos="-32,-60" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="White" Width="128 _px" Height="64 _px" Rotate="true" Control_Code="60" Frequency="100 _kHz" />
+
+<item itemtype="Ili9341" CircId="Ili9341-16" mainComp="false" Show_id="true" Show_Val="false" Pos="-152,-684" rotation="0" hflip="1" vflip="1" label="Ili9341-16" idLabPos="-32,-180" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="AButton-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-640,-424" rotation="0" hflip="1" vflip="1" label="Button-01" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="Push-1" Norm_Close="false" Poles="1" />
+</item>
+
+<item itemtype="Subcircuit" CircId="AButton-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-636,-324" rotation="0" hflip="1" vflip="1" label="Button-02" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="Push-1" Norm_Close="false" Poles="1" />
+</item>
+
+<item itemtype="Subcircuit" CircId="Mega-20" mainComp="false" Show_id="true" Show_Val="false" Pos="-456,-512" rotation="-630" hflip="1" vflip="1" label="Mega-01" idLabPos="7.73681,-11.3421" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega2560-63" Frequency="16 MHz" Program="elevator-mega/build/arduino.avr.mega/elevator-mega.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+</item>
+
+<item itemtype="AudioOut" CircId="AudioOut-25" mainComp="false" Show_id="true" Show_Val="false" Pos="-428,-584" rotation="-90" hflip="-1" vflip="1" label="AudioOut-00" idLabPos="27.5824,-34.7799" labelrot="90" valLabPos="-16,20" valLabRot="0" Buzzer="false" Impedance="8 Ω" Frequency="1 kHz" />
+
+<item itemtype="LedRgb" CircId="LedRgb-27" mainComp="false" Show_id="true" Show_Val="false" Pos="-620,-364" rotation="0" hflip="1" vflip="1" label="LedRgb-00" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" CommonCathode="true" Threshold_R="3.5 V" MaxCurrent_R="30 mA" Resistance_R="0.6 Ω" Threshold_G="3.5 V" MaxCurrent_G="30 mA" Resistance_G="0.6 Ω" Threshold_B="3.5 V" MaxCurrent_B="30 mA" Resistance_B="0.6 Ω" />
+
+<item itemtype="Node" CircId="Node-26" mainComp="false" Pos="-580,-312" />
+
+<item itemtype="Node" CircId="Node-28" mainComp="false" Pos="-580,-364" />
+
+<item itemtype="Connector" uid="Connector-47" startpinid="Ili9341-16-PinCS" endpinid="Mega-20-8" pointList="-208,-500,-408,-500,-408,-424" />
+
+<item itemtype="Connector" uid="Connector-48" startpinid="Ili9341-16-PinRst" endpinid="Mega-20-9" pointList="-200,-500,-200,-492,-416,-492,-416,-424" />
+
+<item itemtype="Connector" uid="Connector-49" startpinid="Ili9341-16-PinDC" endpinid="Mega-20-10" pointList="-192,-500,-192,-484,-424,-484,-424,-424" />
+
+<item itemtype="Connector" uid="Connector-52" startpinid="Ssd1306-6-PinSda" endpinid="Mega-20-20" pointList="-620,-496,-620,-468,-272,-468,-272,-424" />
+
+<item itemtype="Connector" uid="Connector-53" startpinid="Ssd1306-6-PinSck" endpinid="Mega-20-21" pointList="-628,-496,-628,-460,-264,-460,-264,-424" />
+
+<item itemtype="Connector" uid="Connector-56" startpinid="Mega-20-35" endpinid="KeyPad-2-Pin1" pointList="-232,-368,-144,-368,-144,-420,-104,-420" />
+
+<item itemtype="Connector" uid="Connector-57" startpinid="KeyPad-2-Pin2" endpinid="Mega-20-37" pointList="-104,-404,-136,-404,-136,-360,-232,-360" />
+
+<item itemtype="Connector" uid="Connector-58" startpinid="Mega-20-39" endpinid="KeyPad-2-Pin3" pointList="-232,-352,-128,-352,-128,-388,-104,-388" />
+
+<item itemtype="Connector" uid="Connector-59" startpinid="Mega-20-41" endpinid="KeyPad-2-Pin4" pointList="-232,-344,-88,-344,-88,-372" />
+
+<item itemtype="Connector" uid="Connector-60" startpinid="Mega-20-43" endpinid="KeyPad-2-Pin5" pointList="-232,-336,-72,-336,-72,-372" />
+
+<item itemtype="Connector" uid="Connector-65" startpinid="KeyPad-2-Pin6" endpinid="Mega-20-45" pointList="-56,-372,-56,-328,-232,-328" />
+
+<item itemtype="Connector" uid="Connector-66" startpinid="KeyPad-2-Pin7" endpinid="Mega-20-47" pointList="-40,-372,-40,-320,-232,-320" />
+
+<item itemtype="Connector" uid="Connector-77" startpinid="Ili9341-16-PinSck" endpinid="Mega-20-52" pointList="-176,-500,-176,-296,-240,-296" />
+
+<item itemtype="Connector" uid="Connector-78" startpinid="Ili9341-16-PinMosi" endpinid="Mega-20-51" pointList="-184,-500,-184,-304,-232,-304" />
+
+<item itemtype="Connector" uid="Connector-55" startpinid="KeyPad-2-Pin0" endpinid="Mega-20-33" pointList="-104,-436,-152,-436,-152,-376,-232,-376" />
+
+<item itemtype="Connector" uid="Connector-85" startpinid="AButton-17-Q" endpinid="Mega-20-12" pointList="-600,-416,-568,-416,-568,-444,-440,-444,-440,-424" />
+
+<item itemtype="Connector" uid="Connector-102" startpinid="AudioOut-25-rPin" endpinid="Mega-20-GND0" pointList="-428,-568,-428,-540,-456,-540,-456,-424" />
+
+<item itemtype="Connector" uid="Connector-104" startpinid="AudioOut-25-lPin" endpinid="Mega-20-6" pointList="-420,-568,-420,-540,-384,-540,-384,-424" />
+
+<item itemtype="Connector" uid="Connector-106" startpinid="AButton-18-Q" endpinid="Mega-20-13" pointList="-596,-316,-544,-316,-544,-436,-448,-436,-448,-424" />
+
+<item itemtype="Connector" uid="Connector-107" startpinid="AButton-18-!Q" endpinid="Node-26-1" pointList="-596,-308,-580,-308,-580,-312" />
+
+<item itemtype="Connector" uid="Connector-108" startpinid="Mega-20-GND1" endpinid="Node-26-0" pointList="-408,-280,-408,-240,-580,-240,-580,-312" />
+
+<item itemtype="Connector" uid="Connector-111" startpinid="LedRgb-27-Pin1" endpinid="Mega-20-48" pointList="-636,-364,-648,-364,-648,-220,-252,-220,-252,-312,-240,-312" />
+
+<item itemtype="Connector" uid="Connector-112" startpinid="LedRgb-27-Pin0" endpinid="Mega-20-46" pointList="-636,-372,-636,-204,-260,-204,-260,-320,-240,-320" />
+
+<item itemtype="Connector" uid="Connector-113" startpinid="LedRgb-27-Pin3" endpinid="Node-28-1" pointList="-604,-364,-580,-364" />
+
+<item itemtype="Connector" uid="Connector-114" startpinid="Node-26-2" endpinid="Node-28-0" pointList="-580,-312,-580,-364" />
+
+<item itemtype="Connector" uid="Connector-115" startpinid="Node-28-2" endpinid="AButton-17-!Q" pointList="-580,-364,-580,-408,-600,-408" />
+
+</circuit>

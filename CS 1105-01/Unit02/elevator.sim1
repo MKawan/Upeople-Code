@@ -1,0 +1,139 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="MM74C922-15" mainComp="false" Show_id="true" Show_Val="false" Pos="-432,-216" rotation="0" hflip="1" vflip="1" label="MM74C922-15" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="CD4511-16" mainComp="false" Show_id="true" Show_Val="false" Pos="-280,-112" rotation="0" hflip="1" vflip="1" label="CD4511-16" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Rail" CircId="Rail-17" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-376,-104" rotation="90" hflip="1" vflip="1" label="Rail-17" idLabPos="-5,-10" labelrot="-90" valLabPos="-13.2434,8.48679" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Ground" CircId="Ground-19" mainComp="false" Show_id="false" Show_Val="false" Pos="-344,-12" rotation="0" hflip="1" vflip="1" label="Ground-19" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Seven Segment" CircId="Seven Segment-26" mainComp="false" Show_id="false" Show_Val="false" Pos="-164,-80" rotation="0" hflip="1" vflip="1" label="Seven Segment-26" idLabPos="20,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" NumDisplays="1" Vertical_Pins="false" CommonCathode="true" Threshold="2.4 V" MaxCurrent="20 mA" Resistance="1 Ω" />
+
+<item itemtype="elCapacitor" CircId="elCapacitor-29" mainComp="false" ShowProp="Capacitance" Show_id="false" Show_Val="true" Pos="-316,-216" rotation="-90" hflip="1" vflip="1" label="elCapacitor-29" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Capacitance="10 µF" Resistance="1 µΩ" InitVolt="0 V" ReaStep="0 ns" />
+
+<item itemtype="Capacitor" CircId="Capacitor-30" mainComp="false" ShowProp="Capacitance" Show_id="false" Show_Val="true" Pos="-264,-216" rotation="-90" hflip="1" vflip="1" label="Capacitor-30" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Capacitance="1 µF" Resistance="1 µΩ" InitVolt="0 V" ReaStep="0 ns" />
+
+<item itemtype="Ground" CircId="Ground-33" mainComp="false" Show_id="false" Show_Val="false" Pos="-292,-172" rotation="0" hflip="1" vflip="1" label="Ground-33" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Ground" CircId="Ground-28" mainComp="false" Show_id="false" Show_Val="false" Pos="-156,-12" rotation="0" hflip="1" vflip="1" label="Ground-28" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="KeyPad" CircId="KeyPad-41" mainComp="false" Show_id="true" Show_Val="false" Pos="-564,-156" rotation="0" hflip="1" vflip="1" label="KeyPad-41" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="4" Cols="4" Key_Labels="0123456789*." />
+
+<item itemtype="Subcircuit" CircId="AButton-75" mainComp="false" Show_id="true" Show_Val="false" Pos="-676,-492" rotation="0" hflip="1" vflip="1" label="AButton-75" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="Push-1" Norm_Close="false" Poles="1" />
+</item>
+
+<item itemtype="Subcircuit" CircId="AButton-76" mainComp="false" Show_id="true" Show_Val="false" Pos="-676,-432" rotation="0" hflip="1" vflip="1" label="AButton-76" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="Push-1" Norm_Close="false" Poles="1" />
+</item>
+
+<item itemtype="Ssd1306" CircId="Ssd1306-78" mainComp="false" Show_id="true" Show_Val="false" Pos="-616,-624" rotation="0" hflip="1" vflip="1" label="Ssd1306-78" idLabPos="-32,-60" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="White" Width="128 _px" Height="64 _px" Rotate="true" Control_Code="60" Frequency="100 _kHz" />
+
+<item itemtype="Subcircuit" CircId="Nano-73" mainComp="false" Show_id="true" Show_Val="false" Pos="-440,-548" rotation="-180" hflip="1" vflip="1" label="Nano-73" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="m328 TQFP-269" Frequency="16 MHz" Program="arduino-nano-elevator/elevator-arduino/build/arduino.avr.nano/elevator-arduino.ino.hex" Auto_Load="false" saveEepr="true" MainMcu="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Ili9341" CircId="Ili9341-89" mainComp="false" Show_id="true" Show_Val="false" Pos="-188,-764" rotation="0" hflip="1" vflip="1" label="Ili9341-89" idLabPos="-32,-180" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="KeyPad" CircId="KeyPad-91" mainComp="false" Show_id="false" Show_Val="false" Pos="-156,-552" rotation="0" hflip="-1" vflip="1" label="KeyPad-91" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="4" Cols="4" Key_Labels="123C456T789S*0#P" />
+
+<item itemtype="Node" CircId="Node-22" mainComp="false" Pos="-376,-72" />
+
+<item itemtype="Node" CircId="Node-23" mainComp="false" Pos="-344,-56" />
+
+<item itemtype="Node" CircId="Node-35" mainComp="false" Pos="-292,-200" />
+
+<item itemtype="Connector" uid="Connector-29" startpinid="MM74C922-15-A" endpinid="CD4511-16-D0" pointList="-392,-160,-308,-160,-308,-104,-288,-104" />
+
+<item itemtype="Connector" uid="Connector-31" startpinid="MM74C922-15-B" endpinid="CD4511-16-D1" pointList="-392,-152,-316,-152,-316,-96,-288,-96" />
+
+<item itemtype="Connector" uid="Connector-32" startpinid="MM74C922-15-C" endpinid="CD4511-16-D2" pointList="-392,-144,-324,-144,-324,-88,-288,-88" />
+
+<item itemtype="Connector" uid="Connector-33" startpinid="MM74C922-15-D" endpinid="CD4511-16-D3" pointList="-392,-136,-332,-136,-332,-80,-288,-80" />
+
+<item itemtype="Connector" uid="Connector-48" startpinid="CD4511-16-!LT" endpinid="Node-22-1" pointList="-288,-72,-376,-72" />
+
+<item itemtype="Connector" uid="Connector-49" startpinid="Rail-17-outnod" endpinid="Node-22-0" pointList="-376,-88,-376,-72" />
+
+<item itemtype="Connector" uid="Connector-50" startpinid="Node-22-2" endpinid="CD4511-16-!BL" pointList="-376,-72,-376,-64,-288,-64" />
+
+<item itemtype="Connector" uid="Connector-53" startpinid="MM74C922-15-!OE" endpinid="Node-23-0" pointList="-392,-176,-344,-176,-344,-56" />
+
+<item itemtype="Connector" uid="Connector-55" startpinid="CD4511-16-A" endpinid="Seven Segment-26-pin_a" pointList="-240,-104,-188,-104" />
+
+<item itemtype="Connector" uid="Connector-56" startpinid="CD4511-16-B" endpinid="Seven Segment-26-pin_b" pointList="-240,-96,-188,-96" />
+
+<item itemtype="Connector" uid="Connector-57" startpinid="CD4511-16-C" endpinid="Seven Segment-26-pin_c" pointList="-240,-88,-188,-88" />
+
+<item itemtype="Connector" uid="Connector-58" startpinid="CD4511-16-D" endpinid="Seven Segment-26-pin_d" pointList="-240,-80,-188,-80" />
+
+<item itemtype="Connector" uid="Connector-59" startpinid="CD4511-16-E" endpinid="Seven Segment-26-pin_e" pointList="-240,-72,-188,-72" />
+
+<item itemtype="Connector" uid="Connector-60" startpinid="CD4511-16-F" endpinid="Seven Segment-26-pin_f" pointList="-240,-64,-188,-64" />
+
+<item itemtype="Connector" uid="Connector-61" startpinid="CD4511-16-G" endpinid="Seven Segment-26-pin_g" pointList="-240,-56,-188,-56" />
+
+<item itemtype="Connector" uid="Connector-54" startpinid="Node-23-2" endpinid="Ground-19-Gnd" pointList="-344,-56,-344,-28" />
+
+<item itemtype="Connector" uid="Connector-77" startpinid="Ground-33-Gnd" endpinid="Node-35-1" pointList="-292,-188,-292,-200" />
+
+<item itemtype="Connector" uid="Connector-78" startpinid="elCapacitor-29-lPin" endpinid="Node-35-0" pointList="-316,-200,-292,-200" />
+
+<item itemtype="Connector" uid="Connector-79" startpinid="Node-35-2" endpinid="Capacitor-30-lPin" pointList="-292,-200,-264,-200" />
+
+<item itemtype="Connector" uid="Connector-65" startpinid="Seven Segment-26-pin_commona" endpinid="Ground-28-Gnd" pointList="-156,-48,-156,-28" />
+
+<item itemtype="Connector" uid="Connector-92" startpinid="MM74C922-15-KBM" endpinid="Capacitor-30-rPin" pointList="-392,-208,-360,-208,-360,-248,-264,-248,-264,-232" />
+
+<item itemtype="Connector" uid="Connector-52" startpinid="CD4511-16-!LE" endpinid="Node-23-1" pointList="-288,-56,-344,-56" />
+
+<item itemtype="Connector" uid="Connector-93" startpinid="elCapacitor-29-rPin" endpinid="MM74C922-15-OSC" pointList="-316,-232,-352,-232,-352,-200,-392,-200" />
+
+<item itemtype="Connector" uid="Connector-157" startpinid="MM74C922-15-X4" endpinid="KeyPad-41-Pin7" pointList="-440,-184,-652,-184,-652,-8,-516,-8,-516,-84" />
+
+<item itemtype="Connector" uid="Connector-156" startpinid="KeyPad-41-Pin6" endpinid="MM74C922-15-X3" pointList="-532,-84,-532,-24,-640,-24,-640,-192,-440,-192" />
+
+<item itemtype="Connector" uid="Connector-155" startpinid="MM74C922-15-X2" endpinid="KeyPad-41-Pin5" pointList="-440,-200,-624,-200,-624,-44,-548,-44,-548,-84" />
+
+<item itemtype="Connector" uid="Connector-154" startpinid="KeyPad-41-Pin4" endpinid="MM74C922-15-X1" pointList="-564,-84,-564,-64,-608,-64,-608,-208,-440,-208" />
+
+<item itemtype="Connector" uid="Connector-153" startpinid="KeyPad-41-Pin0" endpinid="MM74C922-15-Y1" pointList="-500,-148,-488,-148,-488,-160,-440,-160" />
+
+<item itemtype="Connector" uid="Connector-152" startpinid="KeyPad-41-Pin1" endpinid="MM74C922-15-Y2" pointList="-500,-132,-476,-132,-476,-152,-440,-152" />
+
+<item itemtype="Connector" uid="Connector-151" startpinid="KeyPad-41-Pin2" endpinid="MM74C922-15-Y3" pointList="-500,-116,-464,-116,-464,-144,-440,-144" />
+
+<item itemtype="Connector" uid="Connector-150" startpinid="KeyPad-41-Pin3" endpinid="MM74C922-15-Y4" pointList="-500,-100,-452,-100,-452,-136,-440,-136" />
+
+<item itemtype="Connector" uid="Connector-193" startpinid="Ssd1306-78-PinSda" endpinid="Nano-73-A4" pointList="-656,-576,-656,-560,-484,-560,-484,-468,-432,-468" />
+
+<item itemtype="Connector" uid="Connector-194" startpinid="Ssd1306-78-PinSck" endpinid="Nano-73-A5" pointList="-664,-576,-664,-552,-492,-552,-492,-460,-432,-460" />
+
+<item itemtype="Connector" uid="Connector-237" startpinid="Nano-73-8" endpinid="Ili9341-89-PinCS" pointList="-384,-492,-244,-492,-244,-580" />
+
+<item itemtype="Connector" uid="Connector-238" startpinid="Nano-73-9" endpinid="Ili9341-89-PinRst" pointList="-384,-500,-236,-500,-236,-580" />
+
+<item itemtype="Connector" uid="Connector-239" startpinid="Nano-73-10" endpinid="Ili9341-89-PinDC" pointList="-384,-508,-228,-508,-228,-580" />
+
+<item itemtype="Connector" uid="Connector-241" startpinid="Nano-73-11" endpinid="Ili9341-89-PinMosi" pointList="-384,-516,-220,-516,-220,-580" />
+
+<item itemtype="Connector" uid="Connector-242" startpinid="Ili9341-89-PinSck" endpinid="Nano-73-13" pointList="-212,-580,-212,-560,-456,-560,-456,-524,-432,-524" />
+
+<item itemtype="Connector" uid="Connector-255" startpinid="KeyPad-91-Pin0" endpinid="Nano-73-7" pointList="-172,-544,-200,-544,-200,-484,-384,-484" />
+
+<item itemtype="Connector" uid="Connector-256" startpinid="Nano-73-6" endpinid="KeyPad-91-Pin1" pointList="-384,-476,-192,-476,-192,-528,-172,-528" />
+
+<item itemtype="Connector" uid="Connector-257" startpinid="KeyPad-91-Pin2" endpinid="Nano-73-5" pointList="-172,-512,-184,-512,-184,-468,-384,-468" />
+
+<item itemtype="Connector" uid="Connector-258" startpinid="Nano-73-4" endpinid="KeyPad-91-Pin3" pointList="-384,-460,-176,-460,-176,-496,-172,-496" />
+
+<item itemtype="Connector" uid="Connector-259" startpinid="KeyPad-91-Pin4" endpinid="Nano-73-3" pointList="-156,-480,-156,-452,-384,-452" />
+
+<item itemtype="Connector" uid="Connector-260" startpinid="KeyPad-91-Pin5" endpinid="Nano-73-2" pointList="-140,-480,-140,-444,-384,-444" />
+
+<item itemtype="Connector" uid="Connector-262" startpinid="KeyPad-91-Pin6" endpinid="Nano-73-A7" pointList="-124,-480,-124,-364,-456,-364,-456,-444,-432,-444" />
+
+<item itemtype="Connector" uid="Connector-263" startpinid="KeyPad-91-Pin7" endpinid="Nano-73-A6" pointList="-108,-480,-108,-352,-468,-352,-468,-452,-432,-452" />
+
+</circuit>
