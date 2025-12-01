@@ -1,3 +1,20 @@
+/* ---------------------------------------------------------------------------
+   Arduino 7-Segment Display Controller Using D Flip-Flops (SimulIDE Compatible)
+   ---------------------------------------------------------------------------
+   - SEG_A … SEG_G : Segment pins for the 7-segment display (common cathode)
+   - BOTAO         : Increment button (INPUT_PULLUP, active LOW)
+   - PIN_CLEAR     : Reset button (INPUT_PULLUP, active LOW)
+   - PIN_CLOCK     : Clock pulse output for external D flip-flops
+
+   This program:
+     • Drives all 7 segments using Arduino pins
+     • Sends their logic state into the D inputs of external flip-flops
+     • Generates a clean CLOCK pulse so flip-flops capture the new state
+     • Uses one button to increment the displayed digit (0 → 9 loop)
+     • Uses one button for asynchronous reset (/CLR) of the flip-flops
+--------------------------------------------------------------------------- */
+
+// ---- 7-segment pins (common cathode, HIGH turns segment ON) ----
 #define SEG_A 31
 #define SEG_B 33
 #define SEG_C 35
@@ -6,130 +23,179 @@
 #define SEG_F 41
 #define SEG_G 43
 
-#define BOTAO 2       // botão de incremento (INPUT_PULLUP, ativo LOW)
-#define PIN_CLEAR 3   // botão de reset (INPUT_PULLUP, ativo LOW)
-#define PIN_CLOCK 52   // clock dos flip-flops (OUTPUT)
+// ---- Button pins ----
+#define BUTTON 2        // Increment button (INPUT_PULLUP, active LOW)
+#define PIN_CLEAR 3    // Reset button for /CLR (INPUT_PULLUP, active LOW)
 
-int contador = 0;
+// ---- Flip-Flop clock pin ----
+#define PIN_CLOCK 52   // Clock output to all D flip-flops
+
+// Counter variable (0–9)
+int cont = 0;
 
 void setup() {
-  // configura pinos dos segmentos como saída
+
+  // -------------------------------------------------------------
+  // Configure the 7-segment pins as outputs
+  // -------------------------------------------------------------
   pinMode(SEG_A, OUTPUT); pinMode(SEG_B, OUTPUT);
   pinMode(SEG_C, OUTPUT); pinMode(SEG_D, OUTPUT);
   pinMode(SEG_E, OUTPUT); pinMode(SEG_F, OUTPUT);
   pinMode(SEG_G, OUTPUT);
 
-  // clock como saída
+  // -------------------------------------------------------------
+  // Configure the clock pin (starts LOW)
+  // -------------------------------------------------------------
   pinMode(PIN_CLOCK, OUTPUT);
   digitalWrite(PIN_CLOCK, LOW);
 
-  // inicializa botões com pull-up
-  pinMode(BOTAO, INPUT_PULLUP);
+  // -------------------------------------------------------------
+  // Increment button uses pull-up resistor (active LOW)
+  // -------------------------------------------------------------
+  pinMode(BUTTON, INPUT_PULLUP);
 
-  // STARTUP RESET: pulso elétrico curto para limpar os flip-flops ao ligar
-  // Fazemos isso temporariamente dirigindo o pino como OUTPUT LOW, depois voltamos pra INPUT_PULLUP
-  pinMode(PIN_CLEAR, OUTPUT);
-  digitalWrite(PIN_CLEAR, LOW);
-  delay(10);                      // garante reset curto no power-on
-  pinMode(PIN_CLEAR, INPUT_PULLUP); // agora o pino vira botão (pull-up interno)
+  // -------------------------------------------------------------
+  // Startup RESET:
+  // Send a short LOW pulse to /CLR to initialize all flip-flops
+  // Flip-flops boot in undefined states, so this ensures "0"
+  // -------------------------------------------------------------
+  pinMode(PIN_CLEAR, OUTPUT);    // Drive /CLR directly
+  digitalWrite(PIN_CLEAR, LOW);  // Assert reset
+  delay(10);                     // Keep reset active briefly
+  pinMode(PIN_CLEAR, INPUT_PULLUP); // Return pin to button mode
 
-  // inicial mostra 0 por segurança (só setamos segmentos e damos clock)
-  contador = 0;
-  setSegments(contador);
+  // -------------------------------------------------------------
+  // Initialize display at "0"
+  // Load segments → send clock → flip-flops latch the value
+  // -------------------------------------------------------------
+  cont = 0;
+  setSegments(cont);
   clockPulse();
 
   Serial.begin(9600);
-  Serial.println("Sistema iniciado (CLEAR por botão).");
+  Serial.println("System started (CLEAR uses button).");
 }
 
-/* ---------- Funções utilitárias ---------- */
-
+/* ---------------------------------------------------------------------------
+   Generates a clean clock pulse for flip-flops.
+   Rising edge is what the flip-flops detect.
+--------------------------------------------------------------------------- */
 void clockPulse() {
   digitalWrite(PIN_CLOCK, LOW);
   delayMicroseconds(200);
-  digitalWrite(PIN_CLOCK, HIGH);   // borda de subida que o FF reconhece
+  
+  digitalWrite(PIN_CLOCK, HIGH);   // Rising edge → flip-flops latch input
   delayMicroseconds(200);
+  
   digitalWrite(PIN_CLOCK, LOW);
   delayMicroseconds(100);
 }
 
-// Common Cathode — HIGH acende
+/* ---------------------------------------------------------------------------
+   Writes the correct pattern to the 7-segment display.
+   HIGH = segment ON (common cathode display)
+--------------------------------------------------------------------------- */
 void setSegments(int n) {
-  // 1 = aceso, 0 = apagado
+  // Each segment must be HIGH (ON) or LOW (OFF)
   switch (n) {
     case 0: digitalWrite(SEG_A,1); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,1); digitalWrite(SEG_F,1);
             digitalWrite(SEG_G,0); break;
+
     case 1: digitalWrite(SEG_A,0); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,0); digitalWrite(SEG_E,0); digitalWrite(SEG_F,0);
             digitalWrite(SEG_G,0); break;
+
     case 2: digitalWrite(SEG_A,1); digitalWrite(SEG_B,1); digitalWrite(SEG_C,0);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,1); digitalWrite(SEG_F,0);
             digitalWrite(SEG_G,1); break;
+
     case 3: digitalWrite(SEG_A,1); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,0); digitalWrite(SEG_F,0);
             digitalWrite(SEG_G,1); break;
+
     case 4: digitalWrite(SEG_A,0); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,0); digitalWrite(SEG_E,0); digitalWrite(SEG_F,1);
             digitalWrite(SEG_G,1); break;
+
     case 5: digitalWrite(SEG_A,1); digitalWrite(SEG_B,0); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,0); digitalWrite(SEG_F,1);
             digitalWrite(SEG_G,1); break;
+
     case 6: digitalWrite(SEG_A,1); digitalWrite(SEG_B,0); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,1); digitalWrite(SEG_F,1);
             digitalWrite(SEG_G,1); break;
+
     case 7: digitalWrite(SEG_A,1); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,0); digitalWrite(SEG_E,0); digitalWrite(SEG_F,0);
             digitalWrite(SEG_G,0); break;
+
     case 8: digitalWrite(SEG_A,1); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,1); digitalWrite(SEG_F,1);
             digitalWrite(SEG_G,1); break;
+
     case 9: digitalWrite(SEG_A,1); digitalWrite(SEG_B,1); digitalWrite(SEG_C,1);
             digitalWrite(SEG_D,1); digitalWrite(SEG_E,0); digitalWrite(SEG_F,1);
             digitalWrite(SEG_G,1); break;
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Increments the digit (0 → 9 → 0), updates segments,
+   and sends a clock pulse so flip-flops latch the new state.
+--------------------------------------------------------------------------- */
 void mostrar() {
-  contador++;
-  if (contador > 9) contador = 0;
+  cont++;
+  if (cont > 9) cont = 0;   // Wrap around
 
-  // Coloca os bits nas entradas D (segmentos) ANTES do clock
-  setSegments(contador);
+  setSegments(cont);            // Update D inputs
+  clockPulse();                     // Flip-flops capture new value
 
-  // Pulso de clock que faz o FlipFlop capturar os D's
-  clockPulse();
-
-  Serial.print("Mostrado: ");
-  Serial.println(contador);
+  Serial.print("Displayed: ");
+  Serial.println(cont);
 }
 
-/* ---------- Loop principal ---------- */
+/* ---------------------------------------------------------------------------
+   MAIN LOOP
+--------------------------------------------------------------------------- */
 void loop() {
-  // ---- Botão CLEAR (reset) ----
-  if (digitalRead(PIN_CLEAR) == LOW) { // botão pressionado (ativo LOW)
-    delay(20); // debounce simples
+
+  // -------------------------------------------------------------
+  // CLEAR button (active LOW, resets flip-flops via hardware /CLR)
+  // -------------------------------------------------------------
+  if (digitalRead(PIN_CLEAR) == LOW) {
+    delay(20); // Debounce
     if (digitalRead(PIN_CLEAR) == LOW) {
-      // aqui o botão fisicamente puxa a linha para GND → /CLR ativo no flip-flop
-      // aguardamos a liberação para evitar contagens indesejadas
-      Serial.println("RESET (CLEAR) pressionado");
-      while (digitalRead(PIN_CLEAR) == LOW) { delay(10); } // espera soltar
-      delay(30);
-      // opcional: após soltar, fazemos uma leitura inicial (não necessário)
+
+      Serial.println("RESET button pressed");
+
+      // Wait until released — prevents multiple resets
+      while (digitalRead(PIN_CLEAR) == LOW) {
+        delay(10);
+      }
+
+      delay(30);  // Additional debounce safety
     }
   }
 
-  // ---- Botão increment (BOTAO) ----
-  if (digitalRead(BOTAO) == LOW) { // ativo LOW
-    delay(20); // debounce
-    if (digitalRead(BOTAO) == LOW) {
-      mostrar();
-      // espera soltar para evitar múltiplos triggers
-      while (digitalRead(BOTAO) == LOW) { delay(10); }
-      delay(20);
+  // -------------------------------------------------------------
+  // INCREMENT button (active LOW)
+  // -------------------------------------------------------------
+  if (digitalRead(BUTTON) == LOW) {
+    delay(20); // Debounce
+
+    if (digitalRead(BUTTON) == LOW) {
+      mostrar();     // Show next number
+
+      // Wait for button release
+      while (digitalRead(BUTTON) == LOW) {
+        delay(10);
+      }
+
+      delay(20); // Debounce after release
     }
   }
 
-  // pouco tempo de iddle
+  // Small idle delay (prevents loop from running too fast)
   delay(5);
 }
