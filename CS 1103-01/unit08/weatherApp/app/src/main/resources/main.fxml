@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.weatherapp.WeatherController"
+      fx:id="mainPane"
+      spacing="10"
+      alignment="TOP_CENTER"
+      prefWidth="800"
+      prefHeight="600"
+      style="-fx-background-color: #87CEEB; -fx-padding: 15;">
+
+    <!-- CITY INPUT -->
+    <HBox spacing="10">
+        <TextField fx:id="txtCity" promptText="Enter city name..." HBox.hgrow="ALWAYS"/>
+        <Button text="Search" onAction="#onSearchCities"/>
+    </HBox>
+
+    <!-- CITY LIST -->
+    <ListView fx:id="cityList" prefHeight="120" maxWidth="400"/>
+
+    <!-- CURRENT WEATHER -->
+    <VBox spacing="10" alignment="CENTER">
+        <Label fx:id="lblCity" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+        <ImageView fx:id="weatherIcon" fitWidth="100" fitHeight="100"/>
+        <Label fx:id="lblTemp" style="-fx-font-size: 32;"/>
+        <Label fx:id="lblDesc" style="-fx-font-size: 18;"/>
+		<GridPane hgap="20" vgap="10" alignment="CENTER">
+		    <Label text="Humidity:" GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="CENTER"/>
+		    <Label fx:id="lblHumidity" GridPane.rowIndex="0" GridPane.columnIndex="1" alignment="CENTER"/>
+		    <Label text="Wind:" GridPane.rowIndex="1" GridPane.columnIndex="0" alignment="CENTER"/>
+		    <Label fx:id="lblWind" GridPane.rowIndex="1" GridPane.columnIndex="1" alignment="CENTER"/>
+		</GridPane>
+
+    </VBox>
+
+    <!-- 5-DAY FORECAST -->
+    <HBox fx:id="forecastBox" spacing="10" alignment="CENTER"/>
+
+</VBox>
