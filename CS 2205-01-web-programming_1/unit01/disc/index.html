@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MKBookstore</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="brand">MKBookstore</div>
+      <div class="search-controls">
+        <input id="searchInput" placeholder="Search books, authors, or ISBN" />
+        <button id="searchBtn">Search</button>
+      </div>
+      <button id="cartBtn" class="cart-btn">
+        Cart (<span id="cartCount">0</span>)
+      </button>
+    </header>
+
+    <main>
+      <section id="books" class="books-grid"></section>
+    </main>
+
+    <div id="cartModal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close" id="closeCart">×</button>
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <div class="cart-footer">
+          <div id="cartTotal">Total: $0.00</div>
+          <button id="checkoutBtn" class="primary">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <template id="book-template">
+      <article class="book-card">
+        <img class="cover" src="" alt="cover" />
+        <div class="info">
+          <h3 class="title"></h3>
+          <p class="author"></p>
+          <div class="actions">
+            <button class="details">Details</button>
+            <button class="add">Add to Cart</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
