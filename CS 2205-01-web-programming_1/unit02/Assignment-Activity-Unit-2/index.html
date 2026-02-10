@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Travel Blog - Home</title>
+
+</head>
+<body>
+
+  <!-- Theme toggle button -->
+  <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+    <span class="theme-icon">🌙</span>
+  </button>
+
+  <div class="container">
+    <!-- Main page title - gives context to the visitor -->
+    <h1>Welcome to MK Travel Blog</h1>
+
+    <!-- Continent selector blocks - clicking them reveals destination lists -->
+    <div class="number-blocks">
+      <a href="#" id="block1" class="number-block" onclick="loadContinent('europe', event)">1</a>
+      <a href="#" id="block2" class="number-block" onclick="loadContinent('asia', event)">2</a>
+      <a href="#" id="block3" class="number-block" onclick="loadContinent('america', event)">3</a>
+      <a href="#" id="block4" class="number-block" onclick="loadContinent('africa', event)">4</a>
+    </div>
+    <div id="title-external"></div>
+    <div id="contentContainer" class="content-container">
+        
+      <!-- Dynamic content will be injected here based on continent selection -->
+    </div>
+
+  </div>
+
+  <!-- Image Viewer Modal -->
+  <div id="imageViewer" class="image-viewer">
+    <div class="viewer-header" id="viewerTitle"></div>
+    <button class="viewer-close-btn" onclick="closeImageViewer()">✕ Close</button>
+    <div class="viewer-container">
+      <img id="viewerImage" class="viewer-image" src="" alt="City image">
+    </div>
+    <div class="viewer-controls">
+      <button class="viewer-btn" id="prevBtn" onclick="previousImage()">← Previous</button>
+      <div class="image-counter">
+        <span id="imageCounter">1</span> / 10
+      </div>
+      <button class="viewer-btn" id="nextBtn" onclick="nextImage()">Next →</button>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
