@@ -171,6 +171,8 @@ function loadContinent(continentKey, event) {
 function closeContinent() {
   const container = document.getElementById('contentContainer');
   container.innerHTML = '';
+  const titleElement = document.getElementById('title-external');
+  titleElement.innerHTML = '';
   
   // Scroll back to top
   window.scrollTo({ top: 0, behavior: 'smooth' });

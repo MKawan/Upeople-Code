@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="styles.css" />
+  <title>Travel Blog - Stories</title>
+
+</head>
+<body>
+
+  <!-- Theme toggle button -->
+  <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+    <span class="theme-icon">🌙</span>
+  </button>
+
+  <div class="container">
+    <!-- Navigation menu -->
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="stories.html" class="nav-link active">Travel Stories</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main page title - gives context to the visitor -->
+    <h1>Travel Stories and Iconic Attractions</h1>
+
+    <!-- Travel Stories Tables by Continent -->
+    <section id="europe-stories" class="stories-section">
+      <h2 class="stories-title" style="border-color: #e74c3c; color: #c0392b;">📍 Europe</h2>
+      <table class="attractions-table">
+        <thead>
+          <tr>
+            <th>Destination - Attraction</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#paris-eiffel" class="story-jump">Paris - Eiffel Tower</a></td>
+            <td>
+              <img src="images/postal-cards/europe/france/paris/image1.png" 
+                   alt="Eiffel Tower" 
+                   class="attraction-img"
+                   onclick="scrollToSection('paris-eiffel')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Eiffel+Tower'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#rome-colosseum" class="story-jump">Rome - Colosseum</a></td>
+            <td>
+              <img src="images/postal-cards/europe/italy/rome/image1.png" 
+                   alt="Colosseum" 
+                   class="attraction-img"
+                   onclick="scrollToSection('rome-colosseum')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Colosseum'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#athens-parthenon" class="story-jump">Athens - Parthenon</a></td>
+            <td>
+              <img src="images/postal-cards/europe/greece/athens/image1.png" 
+                   alt="Parthenon" 
+                   class="attraction-img"
+                   onclick="scrollToSection('athens-parthenon')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Parthenon'">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="asia-stories" class="stories-section">
+      <h2 class="stories-title" style="border-color: #f39c12; color: #d35400;">🏯 Asia</h2>
+      <table class="attractions-table">
+        <thead>
+          <tr>
+            <th>Destination - Attraction</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#tokyo-shibuya" class="story-jump">Tokyo - Shibuya Crossing</a></td>
+            <td>
+              <img src="images/postal-cards/asia/japan/tokyo/image1.png" 
+                   alt="Shibuya Crossing" 
+                   class="attraction-img"
+                   onclick="scrollToSection('tokyo-shibuya')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Shibuya+Crossing'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#beijing-wall" class="story-jump">Beijing - Great Wall</a></td>
+            <td>
+              <img src="images/postal-cards/asia/china/beijing/image1.png" 
+                   alt="Great Wall" 
+                   class="attraction-img"
+                   onclick="scrollToSection('beijing-wall')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Great+Wall'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#delhi-taj" class="story-jump">New Delhi - Taj Mahal</a></td>
+            <td>
+              <img src="images/postal-cards/asia/india/new-delhi/image1.png" 
+                   alt="Taj Mahal" 
+                   class="attraction-img"
+                   onclick="scrollToSection('delhi-taj')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Taj+Mahal'">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="america-stories" class="stories-section">
+      <h2 class="stories-title" style="border-color: #27ae60; color: #1e8449;">🗽 America</h2>
+      <table class="attractions-table">
+        <thead>
+          <tr>
+            <th>Destination - Attraction</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#newyork-liberty" class="story-jump">New York - Statue of Liberty</a></td>
+            <td>
+              <img src="images/postal-cards/america/usa/new-york-city/image1.png" 
+                   alt="Statue of Liberty" 
+                   class="attraction-img"
+                   onclick="scrollToSection('newyork-liberty')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Statue+of+Liberty'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#rio-christ" class="story-jump">Rio de Janeiro - Christ the Redeemer</a></td>
+            <td>
+              <img src="images/postal-cards/america/brazil/rio-de-janeiro/image1.png" 
+                   alt="Christ the Redeemer" 
+                   class="attraction-img"
+                   onclick="scrollToSection('rio-christ')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Christ+Redeemer'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#toronto-falls" class="story-jump">Toronto - Niagara Falls</a></td>
+            <td>
+              <img src="images/postal-cards/america/canada/toronto/image1.png" 
+                   alt="Niagara Falls" 
+                   class="attraction-img"
+                   onclick="scrollToSection('toronto-falls')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Niagara+Falls'">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="africa-stories" class="stories-section">
+      <h2 class="stories-title" style="border-color: #3498db; color: #1b4f72;">🦁 Africa</h2>
+      <table class="attractions-table">
+        <thead>
+          <tr>
+            <th>Destination - Attraction</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#capetown-table" class="story-jump">Cape Town - Table Mountain</a></td>
+            <td>
+              <img src="images/postal-cards/africa/south-africa/cape-town/image1.png" 
+                   alt="Table Mountain" 
+                   class="attraction-img"
+                   onclick="scrollToSection('capetown-table')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Table+Mountain'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#cairo-pyramid" class="story-jump">Cairo - Great Pyramid</a></td>
+            <td>
+              <img src="images/postal-cards/africa/egypt/cairo/image1.png" 
+                   alt="Great Pyramid" 
+                   class="attraction-img"
+                   onclick="scrollToSection('cairo-pyramid')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Great+Pyramid'">
+            </td>
+          </tr>
+          <tr>
+            <td><a href="#marrakech-medina" class="story-jump">Marrakech - Medina Market</a></td>
+            <td>
+              <img src="images/postal-cards/africa/morocco/marrakech/image1.png" 
+                   alt="Medina Market" 
+                   class="attraction-img"
+                   onclick="scrollToSection('marrakech-medina')"
+                   onerror="this.src='https://via.placeholder.com/250x180?text=Medina+Market'">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Detailed Story Sections (Jump-to targets) -->
+    <section class="detailed-stories">
+      <h2>Detailed Travel Stories</h2>
+      
+      <!-- Europe Stories -->
+      <article id="paris-eiffel" class="story-detail">
+        <h3>Paris - Eiffel Tower</h3>
+        <p>My first morning walking along the Seine River will forever be etched in my memory. The smell of fresh croissants from local bakeries, the sound of French conversations echoing through cobblestone streets, and the view of the Eiffel Tower at sunrise – it felt like stepping into a dream. Paris truly deserves its reputation as the most romantic city in the world. Standing beneath the iron lattice tower at night when it sparkles with thousands of lights is an unforgettable experience that captures the magic of this beautiful city.</p>
+      </article>
+
+      <article id="rome-colosseum" class="story-detail">
+        <h3>Rome - Colosseum</h3>
+        <p>The Colosseum stands as a testament to the engineering prowess of the ancient Romans. Walking through its ancient corridors, you can almost hear the echoes of gladiators from nearly 2,000 years ago. The massive amphitheater, now partially in ruins, still shows the grandeur of Roman civilization. At sunrise, when the golden light illuminates the arches, the Colosseum transforms into a romantic monument of history that must be witnessed in person to truly appreciate its scale and magnificence.</p>
+      </article>
+
+      <article id="athens-parthenon" class="story-detail">
+        <h3>Athens - Parthenon</h3>
+        <p>Perched atop the Acropolis, the Parthenon represents the height of ancient Greek architectural and artistic achievement. Built in the 5th century BC, this temple dedicated to Athena showcases the mathematical precision and aesthetic beauty that defined classical Greece. The surrounding views of Athens sprawling below create a breathtaking backdrop. Whether visited at midday under the intense Mediterranean sun or at sunset when the marble glows golden, the Parthenon remains one of the most spiritually moving archaeological sites in the world.</p>
+      </article>
+
+      <!-- Asia Stories -->
+      <article id="tokyo-shibuya" class="story-detail">
+        <h3>Tokyo - Shibuya Crossing</h3>
+        <p>Shibuya Crossing is often called the busiest intersection in the world, and standing at the center of this human river is a uniquely exhilarating experience. Thousands of people cross simultaneously in a carefully choreographed dance of organized chaos. The neon lights, the energy, and the sheer density of humanity create a sensory overload that perfectly encapsulates modern Tokyo. Watching the crossing from above at a café gives you perspective on how perfectly this bustling intersection operates despite the overwhelming crowds.</p>
+      </article>
+
+      <article id="beijing-wall" class="story-detail">
+        <h3>Beijing - Great Wall of China</h3>
+        <p>Hiking along sections of the Great Wall, I couldn't help but contemplate the millions of workers who built this massive structure over centuries. The wall stretches endlessly along mountain ridges, and from the top, you can see why emperors chose this as their defensive barrier. It's not just a wall – it's a monument to human determination, ambition, and sacrifice. The views of valleys and mountains surrounding the wall are as stunning as the structure itself, making it one of the most impressive feats of human engineering.</p>
+      </article>
+
+      <article id="delhi-taj" class="story-detail">
+        <h3>New Delhi - Taj Mahal</h3>
+        <p>The Taj Mahal is a monument to eternal love, built by Emperor Shah Jahan in memory of his beloved wife Mumtaz Mahal. This white marble mausoleum is regarded as one of the most beautiful buildings in the world. The intricate inlay work, the symmetrical gardens, and the way the building changes color throughout the day – from golden in sunrise to silver under moonlight – make it a photographer's paradise. Visiting at dawn, when few tourists are present, allows you to experience the spiritual serenity that inspired its creation.</p>
+      </article>
+
+      <!-- America Stories -->
+      <article id="newyork-liberty" class="story-detail">
+        <h3>New York - Statue of Liberty</h3>
+        <p>Standing on Liberty Island, looking up at the Statue of Liberty, evokes feelings of freedom, hope, and possibility. This iconic copper statue designed by French sculptor Frédéric Auguste Bartholdi has welcomed millions of immigrants to America. The views of Manhattan from the statue's crown are spectacular, offering a bird's-eye perspective of one of the world's greatest cities. Beyond its aesthetic beauty, the Lady Liberty is a powerful symbol of the American ideals that continue to inspire people around the world.</p>
+      </article>
+
+      <article id="rio-christ" class="story-detail">
+        <h3>Rio de Janeiro - Christ the Redeemer</h3>
+        <p>The imposing Christ the Redeemer statue overlooks Rio de Janeiro from the peak of Corcovado Mountain, and visiting this monument is a humbling experience. At 98 feet tall (not including the pedestal), the Art Deco statue is a masterpiece of engineering and artistry. The views of Rio from this vantage point are absolutely breathtaking – you can see the beaches of Copacabana and Ipanema, the Sugar Loaf Mountain, and the sprawling city below. Whether you visit on a clear day or in the clouds, the experience is magical.</p>
+      </article>
+
+      <article id="toronto-falls" class="story-detail">
+        <h3>Toronto - Niagara Falls</h3>
+        <p>The sheer power and majesty of Niagara Falls is something that photographs cannot truly capture. Standing near the falls, you feel the mist on your face and hear the thunderous roar of millions of gallons of water cascading over the cliff every second. This natural wonder straddles the border between Canada and the United States, creating a unique binational experience. Whether viewed from the Canadian or American side, experiencing Niagara Falls is a bucket-list moment that reminds you of nature's incredible power.</p>
+      </article>
+
+      <!-- Africa Stories -->
+      <article id="capetown-table" class="story-detail">
+        <h3>Cape Town - Table Mountain</h3>
+        <p>Table Mountain dominates the skyline of Cape Town, and hiking to its summit or riding the rotating cable car to the top offers panoramic views of the city, the Atlantic Ocean, and the surrounding landscape. On clear days, you can see all the way to the Cape Peninsula and even Robben Island. The mountain creates its own microclimate, and visitors often experience the famous "tablecloth" – clouds that dramatically blanket the mountain peak. From the top, you gain a new perspective on this vibrant, colorful city nestled at the southern tip of Africa.</p>
+      </article>
+
+      <article id="cairo-pyramid" class="story-detail">
+        <h3>Cairo - Great Pyramid of Giza</h3>
+        <p>The Great Pyramid of Khufu is the last standing Wonder of the Ancient World, and approaching it for the first time is an awe-inspiring experience. Built over 4,500 years ago using approximately 2.3 million stone blocks, each weighing several tons, the pyramid's construction remains one of history's greatest mysteries. Walking around its base, you grasp the enormous scale of the structure. Standing in the shadow of the pyramids, contemplating how they were built without modern machinery, fills you with wonder and respect for ancient Egypt's ingenuity.</p>
+      </article>
+
+      <article id="marrakech-medina" class="story-detail">
+        <h3>Marrakech - Medina Market</h3>
+        <p>The medinas (traditional markets) of Marrakech assault every sense in the most beautiful way possible. The sight of colorful spices stacked high, the smell of exotic perfumes and fresh mint tea, the sound of merchants calling out their wares, and the taste of freshly prepared tagine – Morocco's markets are a masterclass in sensory experience. It's a place where time feels beautifully displaced, where you can easily lose track of hours wandering through narrow alleyways filled with traditional crafts, jewelry, textiles, and local products. The energy and culture here are truly unforgettable.</p>
+      </article>
+    </section>
+
+  </div>
+
+  <script>
+    // Function to scroll to section and highlight it
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        section.style.backgroundColor = 'rgba(52, 152, 219, 0.1)';
+        setTimeout(() => {
+          section.style.backgroundColor = '';
+        }, 2000);
+      }
+    }
+  </script>
+  
+  <script src="index.js"></script>
+</body>
+</html>
