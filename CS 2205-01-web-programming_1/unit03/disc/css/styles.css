@@ -15,7 +15,7 @@ body {
     /* Color tokens and theme variables */
     --bg1: #6a11cb;
     --bg2: #2575fc;
-    --card: rgba(255, 255, 255, 0.388);
+    --card: rgba(255, 255, 255, 0.06);
     --glass: rgba(255, 255, 255, 0.06);
     --muted: rgba(255, 255, 255, 0.7);
     margin: 0;
@@ -146,9 +146,15 @@ body {
 
 .credits {
     text-align: center;
-    margin-top: 18px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 13px
+    margin: 18px auto 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    /* restore subtle background to footer so it reads on the page */
+    background: linear-gradient(90deg, rgba(130, 8, 216, 0.772), rgba(193, 61, 237, 0.357));
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 980px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
 }
 
 @media (max-width:880px) {
