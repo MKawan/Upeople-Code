@@ -1,5 +1,9 @@
 <!doctype html>
 <html lang="en">
+<!-- Mini App HTML: Login / Register
+  - Provides two forms: Sign In (default) and Create Account
+  - Responsive layout; edit sections below to customize
+-->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,6 +12,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Page wrapper -->
   <main class="wrap">
     <div class="card">
       <div class="card-aside">
@@ -25,6 +30,7 @@
 
       <div class="card-main">
         <div class="forms">
+          <!-- Sign In form (visible by default) -->
           <form id="loginForm" class="form active">
             <h2>Sign In</h2>
             <label class="field">
@@ -39,6 +45,7 @@
             <p class="muted">Don't have an account? <a href="#" id="showRegister">Create account</a></p>
           </form>
 
+          <!-- Create Account form (hidden by default) -->
           <form id="registerForm" class="form">
             <h2>Create Account</h2>
             <label class="field">
@@ -60,8 +67,10 @@
       </div>
     </div>
   </main>
+  <!-- Footer / credits -->
   <footer class="credits">Made with ♥ — Demo mini app</footer>
 
+  <!-- Main JS: toggles forms and handles simulated submits -->
   <script src="js/script.js"></script>
 </body>
 </html>
