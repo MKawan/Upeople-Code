@@ -115,7 +115,7 @@ JSON response showing all stored contact entries
 Note: Add real screenshots to a screenshots/ folder and update the image paths in this README.
 How to Test
 
-![form](images/image12.png)
+![form](images/image13.png)
 
 Start the backend server
 
