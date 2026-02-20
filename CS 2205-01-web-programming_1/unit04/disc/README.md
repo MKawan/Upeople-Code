@@ -108,9 +108,10 @@ Each generated report creates a new visual coupon block.
 
 ```
 📁 project
- ├── index.html
- ├── style.css
- ├── script.js
+ ├── 📁 image
+ ├── 📄index.html
+ ├── 🎨 style.css
+ ├── ⚙️ script.js
  └── README.md
 ```
 
