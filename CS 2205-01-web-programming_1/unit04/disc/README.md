@@ -23,6 +23,16 @@ This application allows users to:
 - Display transaction history as dynamic coupon-style receipts
 - Scroll through transaction history
 
+#### Screenshort of a project
+
+![Screenshort](image/image1.png)
+![Screenshort](image/image2.png)
+![Screenshort](image/image3.png)
+![Screenshort](image/image4.png)
+![Screenshort](image/image5.png)
+![Screenshort](image/image6.png)
+![Screenshort](image/image7.png)
+
 ---
 
 ## 🧠 JavaScript Concepts Demonstrated
@@ -58,97 +68,102 @@ Transaction.prototype.getSummary = function () {
 ```
 Why?
 
-Shared methods are stored once in memory
+- Shared methods are stored once in memory
 
-Improves performance with large datasets
+- Improves performance with large datasets
 
-Prevents method duplication per instance
+- Prevents method duplication per instance
 
 This is especially important when handling many transactions.
 
-🎨 UI Features
+### 🎨 UI Features
 
-Modern gradient background
+- Modern gradient background
 
-Glassmorphism layout
+- Glassmorphism layout
 
-Animated coupon-style transaction blocks
+- Animated coupon-style transaction blocks
 
-Perforated coupon edges (receipt effect)
+- Perforated coupon edges (receipt effect)
 
-Horizontal/vertical scroll support
+- Horizontal/vertical scroll support
 
-Responsive design
+- Responsive design
 
 ### 🧾 Coupon Effect
 
-#### Transactions are displayed as receipt-style coupons using:
+Transactions are displayed as receipt-style coupons using:
 
-::before and ::after
+- ::before and ::after
 
-radial-gradient
+- radial-gradient
 
-position: absolute
+- position: absolute
 
-CSS animations
+- CSS animations
 
-#### Each generated report creates a new visual coupon block.
+Each generated report creates a new visual coupon block.
 
-🏗️ Project Structure
+### 🏗️ Project Structure
 
+```
 📁 project
  ├── index.html
  ├── style.css
  ├── script.js
  └── README.md
-🚀 How It Works
-1️⃣ Add Transaction
+```
 
-Enter amount
+### 🚀 How It Works
+#### 1️⃣ Add Transaction
 
-Select type (income or expense)
+- Enter amount
 
-Enter category
+- Select type (income or expense)
 
-Click Add
+- Enter category
+
+- Click Add
 
 If category is "salary":
 
-It accumulates into salaryTotal
+- It accumulates into salaryTotal
 
 2️⃣ Generate Report
 
 Click Generate Report to:
 
-Calculate totals
+- Calculate totals
 
-Compute balance
+- Compute balance
 
-Create a new coupon block
+- Create a new coupon block
 
-Append transaction history visually
+- Append transaction history visually
 
 No text overwriting — dynamic DOM creation is used instead.
 
-📊 Example Output
-Salary Total: $5300
-Total Income: $5300
-Total Expenses: $1200
-Balance: $4100
+### 📊 Example Output
 
+```
+    Salary Total: $5300
+    Total Income: $5300
+    Total Expenses: $1200
+    Balance: $4100
+```
 Displayed as a styled receipt block in the interface.
 
-🛡️ Validations Implemented
+### 🛡️ Validations Implemented
 
-Prevent zero or negative values
+- Prevent zero or negative values
 
-Prevent duplicate transactions
+- Prevent duplicate transactions
 
-Prevent empty category
+- Prevent empty category
 
-Controlled salary accumulation
+- Controlled salary accumulation
 
-📱 Responsive Design
+### 📱 Responsive Design
 
 Works on desktop
 
@@ -156,7 +171,7 @@ Adapts to tablets
 
 Stacks layout on mobile devices
 
-🎯 Learning Objectives Achieved
+### 🎯 Learning Objectives Achieved
 
 ✔ Modular JavaScript structure
 ✔ Data encapsulation using closures
@@ -165,32 +180,32 @@ Stacks layout on mobile devices
 ✔ Dynamic DOM manipulation
 ✔ CSS advanced styling techniques
 
-🔮 Possible Improvements
+### 🔮 Possible Improvements
 
-Edit/delete transactions
+- Edit/delete transactions
 
-Persist data with LocalStorage
+- Persist data with LocalStorage
 
-Export report as PDF
+- Export report as PDF
 
-Add charts (Chart.js)
+- Add charts (Chart.js)
 
-Add dark/light theme toggle
+- Add dark/light theme toggle
 
-📚 Author
+### 📚 Author
 
 Developed as part of an academic assignment exploring advanced JavaScript concepts.
 
-🏁 Final Result
+### 🏁 Final Result
 
 This project demonstrates how modern JavaScript architecture principles can be applied even in small applications to improve:
 
-Maintainability
+- Maintainability
 
-Scalability
+- Scalability
 
-Performance
+- Performance
 
-Code organization
+- Code organization
 
 
