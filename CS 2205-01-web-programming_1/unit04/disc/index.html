@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="wrap">
+        <h1>Personal Finance Tracker</h1>
+        <div class="card">
+            <div class="card-aside">
+                <div class="tra-salary">
+
+                    <h3>Add Transaction</h3>
+                    <h4 id="salary">$ 0</h4>
+                </div>
+                <label class="field">
+                    <input type="number" id="amount" placeholder="Amount">
+                </label>
+
+                <select class="field" id="type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <label class="field">
+
+                    <input type="text" id="category" placeholder="Category">
+                    <button class="btn primary" id="addBtn">Add</button>
+                </label>
+
+                <h3>Report</h3>
+                <button class="btn" id="reportBtn">Generate Report</button>
+                <div class="history">
+                    <h2>History</h2>
+                    <pre id="output"></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="credits">Made with ♥ — Demo mini app</footer>
+    <!-- Main JS: toggles forms and handles simulated submits -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

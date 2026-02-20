@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --bg1: #6a11cb;
+  --bg2: #2575fc;
+  --card: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700 bold;
+  /* Se for uma fonte variável, você pode ajustar o eixo de largura também */
+  font-variation-settings: "wdth" 100;
+  /* Color tokens and theme variables */
+  --bg1: #6a11cb;
+  --bg2: #2575fc;
+  --card: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  /*
+  styles overview:
+  - layout: .wrap, .card, .card-aside, .card-main
+  - form elements: .forms, .form, .field, .btn
+  - responsive adjustments at media queries below
+*/
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 8rem;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card-aside {
+  flex: 1.1;
+  padding: 40px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tra-salary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card-main {
+  flex: 1.2;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.lead {
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.forms {
+  width: 100%;
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form.active {
+  display: flex;
+}
+
+.form h2 {
+  margin: 0 0 6px 0;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  background: var(--glass);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.field .icon {
+  margin-right: 10px;
+  opacity: 0.95;
+}
+
+.field input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+select {
+  border: none;
+  color: #fff;
+}
+
+.btn {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #ffd86b, #ffb86b);
+  color: #1b1b1b;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.muted a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+}
+
+#output {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  overflow-x: auto;
+}
+
+/* Coupon container */
+.coupon {
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  position: relative;
+  width: 320px;
+  background: #fefdd2;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 2px dashed #333;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  font-family: monospace;
+}
+
+/* Top perforated edge */
+.coupon::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: radial-gradient(
+    circle at 10px 10px,
+    transparent 10px,
+    white 11px
+  );
+  background-size: 20px 20px;
+}
+
+/* Bottom perforated edge */
+.coupon::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: radial-gradient(
+    circle at 10px 10px,
+    transparent 10px,
+    white 11px
+  );
+  background-size: 20px 20px;
+}
+
+/* Transaction styling */
+.transaction-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 5px;
+}
+.copon {
+  animation: pop 0.3s ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.credits {
+  text-align: center;
+  margin: 18px auto 0 auto;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  /* restore subtle background to footer so it reads on the page */
+  background: linear-gradient(
+    90deg,
+    rgba(130, 8, 216, 0.772),
+    rgba(193, 61, 237, 0.357)
+  );
+  padding: 10px 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 880px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card-aside {
+    padding: 28px;
+  }
+
+  .card-main {
+    padding: 28px;
+  }
+}
+
+/* Responsive: stack card vertically on narrower screens */
+@media (max-width: 420px) {
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  .field input {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+}
