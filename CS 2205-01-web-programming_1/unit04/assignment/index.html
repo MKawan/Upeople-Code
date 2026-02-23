@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <meta name="author" content="MKawan">
+    <meta name="contact" content="mateusoliveira.cursos@gmail.com">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="card">
+            <div class="card-aside">
+                <h1>Temperature Converter</h1>
+                <!-- Input field for temperature -->
+                <label class="field">
+                    <input type="number" id="tempInput" placeholder="Enter temperature (e.g., 36)">
+                </label>
+                <!-- Dropdown menu for unit selection -->
+                <label class="field">
+
+                    <select id="unitSelect">
+                        <option value="cToF">Celsius to Fahrenheit</option>
+                        <option value="fToC">Fahrenheit to Celsius</option>
+                    </select>
+                </label>
+                <!-- Button to trigger conversion -->
+                <button class="btn primary" id="convertButton">Convert</button>
+                <!-- Area to display the result -->
+                <div id="resultDisplay"></div>
+                <!-- Area for error messages -->
+                <div id="errorDisplay"></div>
+            </div>
+        </div>
+    </div>
+    <footer class="credits">Made with ♥ — Demo mini app converter</footer>
+    <script src="index.js"></script>
+</body>
+
+</html>

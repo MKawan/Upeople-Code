@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --bg1: #6a11cb;
+  --bg2: #2575fc;
+  --card: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700 bold;
+  /* If it's a variable font, you can adjust the width axis as well */
+  font-variation-settings: "wdth" 100;
+  /* Color tokens and theme variables */
+  --bg1: #6a11cb;
+  --bg2: #2575fc;
+  --card: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.06);
+  --muted: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 8rem;
+}
+
+.card {
+  width: 60%;
+  display: flex;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card-aside {
+  flex: 1.1;
+  padding: 40px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem 0 2rem 0;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  background: var(--glass);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.field .icon {
+  margin-right: 10px;
+  opacity: 0.95;
+}
+
+.field input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font-size: 15px;
+}
+
+.field select {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.btn {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #ffd86b, #ffb86b);
+  color: #1b1b1b;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.credits {
+  text-align: center;
+  margin: 18px auto 0 auto;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  /* restore subtle background to footer so it reads on the page */
+  background: linear-gradient(
+    90deg,
+    rgba(130, 8, 216, 0.772),
+    rgba(193, 61, 237, 0.357)
+  );
+  padding: 10px 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 880px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card-aside {
+    padding: 28px;
+  }
+}
+
+/* Responsive: stack card vertically on narrower screens */
+@media (max-width: 420px) {
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .card {
+    border-radius: 12px;
+  }
+
+  .field input {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+}
