@@ -3,6 +3,7 @@
 A simple real-time chat interface featuring a friendly mini bot (MiniBot) that responds based on keyword matching. Built to demonstrate **DOM manipulation**, **event handling**, and interactive web development using pure HTML, CSS, and JavaScript.
 
 ![Chat Interface Screenshot](img/image1.png) 
+
 *Figure 1. Running chat application showing welcome message, user input "hello", and bot response "Hi! Nice to see you."*
 
 ## Features
@@ -51,9 +52,11 @@ No server or build tools needed – it runs locally!
 - Bot: Feeling great today 😄
 
 ![HTML Code Screenshot](img/image2.png)  
+
 *Figure 2. Screenshot of the main HTML markup, including chat window, input area, and script tag.*
 
 ![JavaScript Code Screenshot](img/image3.png)
+
 *Figure 3. Core JavaScript logic showing `addMessage`, event listeners, and `botResponses` object.*
 
 ## Project Structure
