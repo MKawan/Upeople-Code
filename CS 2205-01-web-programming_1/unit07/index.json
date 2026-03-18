@@ -1,0 +1,56 @@
+{
+  "books": [
+    {
+      "title": "The Great Gatsby",
+      "author": {
+        "firstName": "F. Scott",
+        "lastName": "Fitzgerald"
+      },
+      "publicationYear": 1925,
+      "details": {
+        "publisher": "Scribner",
+        "pageCount": 180,
+        "available": true
+      }
+    },
+    {
+      "title": "1984",
+      "author": {
+        "firstName": "George",
+        "lastName": "Orwell"
+      },
+      "publicationYear": 1949,
+      "details": {
+        "publisher": "Secker & Warburg",
+        "pageCount": 328,
+        "available": false
+      }
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": {
+        "firstName": "Harper",
+        "lastName": "Lee"
+      },
+      "publicationYear": 1960,
+      "details": {
+        "publisher": "J. B. Lippincott & Co.",
+        "pageCount": 281,
+        "available": true
+      }
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": {
+        "firstName": "Jane",
+        "lastName": "Austen"
+      },
+      "publicationYear": 1813,
+      "details": {
+        "publisher": "T. Egerton",
+        "pageCount": 279,
+        "available": true
+      }
+    }
+  ]
+}

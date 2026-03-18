@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookstory Inventory</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f8f9fa; }
+    h1 { text-align: center; color: #222; }
+    .container { display: flex; gap: 30px; max-width: 1300px; margin: 0 auto; }
+    .column { flex: 1; background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .column h2 { text-align: center; color: #007bff; margin: 0 0 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+    .book { margin-bottom: 35px; padding-bottom: 20px; border-bottom: 1px dashed #ddd; }
+    .book:last-child { border-bottom: none; margin-bottom: 0; }
+    .book h3 { margin: 0 0 15px 0; color: #222; font-size: 1.45em; }
+    .info { margin: 10px 0; line-height: 1.7; }
+    .label { font-weight: bold; color: #555; display: inline-block; width: 160px; }
+    .available-yes { color: green; font-weight: bold; }
+    .available-no  { color: red; font-weight: bold; }
+    .error { color: red; background: #ffe6e6; padding: 15px; border-radius: 5px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Bookstory Inventory</h1>
+
+  <div class="container">
+    <div class="column">
+      <h2>📄 Dados do index.xml</h2>
+      <div id="xml-content">Carregando XML...</div>
+    </div>
+
+    <div class="column">
+      <h2>📋 Dados do index.json</h2>
+      <div id="json-content">Carregando JSON...</div>
+    </div>
+  </div>
+
+  <script>
+    fetch('index.xml')
+      .then(r => r.text())
+      .then(xmlText => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+        if (xmlDoc.getElementsByTagName("parsererror").length > 0) {
+          throw new Error("XML mal formado. Verifique o arquivo index.xml");
+        }
+
+        let html = '';
+        const books = xmlDoc.getElementsByTagName("book");
+
+        for (let book of books) {
+          const title = book.getElementsByTagName("title")[0].textContent;
+          const year = book.getElementsByTagName("publicationYear")[0].textContent;
+          const first = book.getElementsByTagName("firstName")[0].textContent;
+          const last = book.getElementsByTagName("lastName")[0].textContent;
+          const publisher = book.getElementsByTagName("publisher")[0].textContent;
+          const pages = book.getElementsByTagName("pageCount")[0].textContent;
+          const avail = book.getAttribute("available") === "true" ? 
+                        '<span class="available-yes">Yes</span>' : 
+                        '<span class="available-no">No</span>';
+
+          html += `
+            <div class="book">
+              <h3>${title}</h3>
+              <div class="info"><span class="label">Author:</span> ${first} ${last}</div>
+              <div class="info"><span class="label">Publication Year:</span> ${year}</div>
+              <div class="info"><span class="label">Publisher:</span> ${publisher}</div>
+              <div class="info"><span class="label">Page Count:</span> ${pages}</div>
+              <div class="info"><span class="label">Available:</span> ${avail}</div>
+            </div>`;
+        }
+        document.getElementById("xml-content").innerHTML = html;
+      })
+      .catch(e => {
+        document.getElementById("xml-content").innerHTML = `<div class="error">❌ ${e.message}</div>`;
+      });
+
+    // JSON permanece o mesmo
+    fetch('index.json')
+      .then(r => r.json())
+      .then(data => {
+        let html = '';
+        data.books.forEach(book => {
+          const author = `${book.author.firstName} ${book.author.lastName}`;
+          const avail = book.details.available ? 
+                        '<span class="available-yes">Yes</span>' : 
+                        '<span class="available-no">No</span>';
+
+          html += `
+            <div class="book">
+              <h3>${book.title}</h3>
+              <div class="info"><span class="label">Author:</span> ${author}</div>
+              <div class="info"><span class="label">Publication Year:</span> ${book.publicationYear}</div>
+              <div class="info"><span class="label">Publisher:</span> ${book.details.publisher}</div>
+              <div class="info"><span class="label">Page Count:</span> ${book.details.pageCount}</div>
+              <div class="info"><span class="label">Available:</span> ${avail}</div>
+            </div>`;
+        });
+        document.getElementById("json-content").innerHTML = html;
+      })
+      .catch(e => {
+        document.getElementById("json-content").innerHTML = `<div class="error">Erro ao carregar JSON</div>`;
+      });
+  </script>
+</body>
+</html>

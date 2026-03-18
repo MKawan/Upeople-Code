@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+  <book id="bk101" available="true">
+    <title>The Great Gatsby</title>
+    <publicationYear>1925</publicationYear>
+    <author>
+      <firstName>F. Scott</firstName>
+      <lastName>Fitzgerald</lastName>
+    </author>
+    <publisher>Charles Scribner’s Sons</publisher>
+    <pageCount>218</pageCount>
+  </book>
+
+  <book id="bk102" available="false">
+    <title>1984</title>
+    <publicationYear>1949</publicationYear>
+    <author>
+      <firstName>George</firstName>
+      <lastName>Orwell</lastName>
+    </author>
+    <publisher>Secker &amp; Warburg</publisher>
+    <pageCount>328</pageCount>
+  </book>
+
+  <book id="bk103" available="true">
+    <title>To Kill a Mockingbird</title>
+    <publicationYear>1960</publicationYear>
+    <author>
+      <firstName>Harper</firstName>
+      <lastName>Lee</lastName>
+    </author>
+    <publisher>J. B. Lippincott &amp; Co.</publisher>
+    <pageCount>281</pageCount>
+  </book>
+</catalog>
